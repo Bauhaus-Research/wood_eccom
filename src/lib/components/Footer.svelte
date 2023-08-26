@@ -52,29 +52,28 @@
 	let socialMediaBR = [
 		{
 			name: 'Instagram',
-			icon: '/tree.svg',
-			link: 'https://instagram.com/bauhausResearch'
+			icon: '/insta.svg',
+			link: 'https://instagram.com/woodyoubahamas'
 		},
 		{
 			name: 'Facebook',
-			icon: '/tree.svg',
-			link: 'https://youtube.com/'
+			icon: '/facebook.svg',
+			link: 'https://facebook.com/woodyoubahamas'
 		}
 	];
 </script>
 
-<footer id=footer
+<footer
+	id="footer"
 	class="z-40 col-span-12 bg-green-900 text-stone-200 sm:px-10 px-2 overflow-hidden grid grid-flow-row grid-cols-8 h-full w-full justify-center"
 >
 	<section
 		class="text-stone-200 py-10 flex sm:flex-row flex-col justify-center items-center overflow-hidden col-span-8 xl:col-span-4"
 	>
-
 		<div class="w-4" />
-		<div class = "flex">
-
-			<Coupon deal="20% Off" dealtext="Any Seasonal Items"/>
-			<Coupon deal="$100 CashBack" dealtext="For top Customers (No)" text="Apply"/>
+		<div class="flex">
+			<Coupon deal="5% Off" dealtext="Any Rugs in Stock" />
+			<Coupon deal="20% Off" dealtext="Back to School supplies" text="Apply" />
 		</div>
 	</section>
 	<section class="bg-green-900 xl:col-span-4 col-span-8 flex flex-col mb-10">
@@ -83,9 +82,10 @@
 				<h2 class="mb-4 text-3xl tracking-tight font-extrabold text-white sm:text-4xl">
 					Sign up for our newsletter
 				</h2>
-				<p class="mx-auto mb-8 max-w-2xl font-light text-gray-400 md:mb-12 sm:text-xl">
-					Stay up to date with the roadmap progress, announcements and exclusive discounts feel free
-					to sign up with your email.
+				<p
+					class="mx-auto mb-8 max-w-xl font-light text-gray-400 text-opacity-50 md:mb-12 sm:text-xl"
+				>
+					Stay up to date with new products, promotions, and sales.
 				</p>
 				<form action="#">
 					<div class="items-center mx-auto mb-3 space-y-4 max-w-screen-sm sm:flex sm:space-y-0">
@@ -105,7 +105,7 @@
 								>
 							</div>
 							<input
-								class="block p-3 pl-10 w-full text-sm text-stone-100 bg-green-700 rounded-lg border border-gray-600 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500 "
+								class="block p-3 pl-10 w-full text-sm text-stone-100 bg-green-700 rounded-lg border border-gray-600 sm:rounded-none sm:rounded-l-lg focus:ring-primary-500 focus:border-primary-500"
 								placeholder="Enter your email"
 								type="email"
 								id="email"
@@ -116,7 +116,7 @@
 							<button
 								on:click={addNewEmail}
 								type="submit"
-								class="py-3 px-5 w-full text-sm font-medium text-center text-white rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 "
+								class="py-3 px-5 w-full text-sm font-medium text-center text-white bg-white bg-opacity-40 rounded-lg border cursor-pointer bg-primary-700 border-primary-600 sm:rounded-none sm:rounded-r-lg hover:bg-primary-800 focus:ring-4 focus:ring-primary-300"
 								>Subscribe</button
 							>
 						</div>
@@ -126,8 +126,7 @@
 					>
 						We care about the protection of your data. <a
 							href="https://bauhausresearch.com/privacy"
-							class="font-medium text-primary-600  hover:underline"
-							>Read our Privacy Policy</a
+							class="font-medium text-primary-600 hover:underline">Read our Privacy Policy</a
 						>.
 					</div>
 				</form>
@@ -153,4 +152,3 @@
 		</ul>
 	</section>
 </footer>
-

@@ -1,7 +1,7 @@
 <script>
 	import Footer from "$lib/components/Footer.svelte";
 	import Nav from "$lib/components/Nav.svelte";
-  import { fade, slide } from 'svelte/transition'
+  import { fly } from 'svelte/transition'
 	export let data
 	/**
 	 * @type {number}
@@ -259,7 +259,7 @@
 	<section  class="lg:col-span-9 grid sm:grid-cols-4 sm:col-span-8 grid-cols-6 lg:grid-cols-6 xl:grid-cols-8 col-span-12">
 	{#each data.countries as product}
 				<!-- {#if product.dataSheet.Height > 0} -->
-				<li transition:slide={{ delay: 250, duration: 300, axis: 'x' }} class="h-fit box-border border-l-[1px] border-t-[1px] border-gray-200 transition duration-200 ease-in font-base text-base hover:bg-gray-200 sm:col-span-2 col-span-3">
+				<li class="h-fit box-border border-l-[1px] border-t-[1px] border-gray-200 transition duration-200 ease-in font-base text-base hover:bg-gray-200 sm:col-span-2 col-span-3">
 					<a href="/categories/living-room/product" class="flex h-[36rem] flex-col justify-between items-start ">
 						<div class="h-6 bg-green-900 text-sm font-bold text-green-200 rounded-r-lg text-center px-2 mt-1">Sale</div>
 						<div class="w-full">

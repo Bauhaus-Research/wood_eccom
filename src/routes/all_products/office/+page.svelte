@@ -46,9 +46,9 @@
 <svelte:window bind:scrollY={scrollY} />
 <Nav scrollY={20} />
 
-<main class="shadow-md sm:shadow-md md:shadow-md grid grid-cols-12 max-h-[99vh] h-fit max-w-full  gap-4 rounded-md w-full bg-white overflow-x-auto list-none p-0">
-	<div class="h-96 w-full bg-green-900 col-span-12 overflow-x-clip">
-	</div>
+<section class="h-96 w-full col-span-12 overflow-x-clip  bg-center "  style="background-image: url('officeSpace.webp');"></section>
+<section class="shadow-md sm:shadow-md md:shadow-md grid grid-cols-12 max-h-[99vh] h-fit max-w-full  gap-4 rounded-md w-full bg-white list-none p-0">
+
 	<section class="lg:col-span-3  sm:col-span-4 col-span-12 sm:block h-[0%] sm:h-[100%] hidden ">
 		<!-- Left sidebar content -->
 		<div class="sticky top-16 w-full px-4 py-4">
@@ -57,7 +57,7 @@
 			<h1>
 				Available <span class="font-light text-black text-opacity-70">({0})</span
 				>
-			</h1>
+			</h1>top
 
 			<button
 				class="group w-full border-t-2 border-opacity-10 border-slate-600 pt-4 pb-4"
@@ -294,6 +294,6 @@
 			  {/each}
 	</section>
 <Footer />
-	</main>
+</section>
 
 

@@ -1,5 +1,5 @@
 <script>
-	import Footer from "$lib/components/Footer.svelte";
+import Footer from "$lib/components/Footer.svelte";
 	import Nav from "$lib/components/Nav.svelte";
 	export let data
 	/**
@@ -42,6 +42,16 @@
 		// @ts-ignore
 		let ascending = true;
 	}
+
+
+	import { onMount } from 'svelte';
+//   import { productsStore } from '$lib/stores/Cart';
+
+  /**
+	 * @type {any[]}
+	 */
+  let products = [];
+
 </script>
 <svelte:window bind:scrollY={scrollY} />
 <Nav scrollY={20} />
@@ -257,7 +267,7 @@
 	{#each data.countries as product}
 				<!-- {#if product.dataSheet.Height > 0} -->
 				<li class="h-fit box-border border-l-[1px] border-t-[1px] border-gray-200 transition duration-200 ease-in font-base text-base hover:bg-gray-200 sm:col-span-2 col-span-3">
-					<a href="/categories/living-room/product" class="flex h-[36rem] flex-col justify-between items-start ">
+					<div class="flex h-[36rem] flex-col justify-between items-start ">
 						<div class="h-6 bg-green-900 text-sm font-bold text-green-200 rounded-r-lg text-center px-2 mt-1">Sale</div>
 						<div class="w-full">
 							<div class="h-[0px] pb-[100%] sm:h-[100%] w-full group bg-cover" style="background-image: url('{product.image}'); "></div>
@@ -269,8 +279,14 @@
 							<h1 class="text-start text-sm mb-1 font-light line-through italic">${product.price}</h1>
 							<h1 class="text-start text-xs mb-4 font-bold">$<strong class="text-xl align-middle">{Math.floor(product.price)}</strong>.95</h1>
 							<!-- {/if} -->
-							<button class="bg-green-800 text-white py-2 mb-4 rounded-md">Add to cart</button>
-
+							<!-- <button on:click={() => addProduct(product)} class="bg-green-800 text-white py-2 mb-4 rounded-md group flex flex-row justify-between items-center text-center focus:text-opacity-0 duration-500"> -->
+								<!-- <div class="self-start group-focus:translate-x-24 group-focus:animate-bounces ml-4 duration-300 transition-all bg-slate-500 h-6 w-6 delay-500"></div>
+								<h1 class="">
+								  Add to cart
+								</h1>
+								<div class=" h-6 w-6 mr-4"></div>
+							  </button>		 -->
+							<button class="bg-gray-200 text-gray-800 py-2 rounded-md">View</button>
 							<div class="h-16">
 								{#if product['dataSheet/Made In The USA'] == 'Yes'}
 
@@ -286,7 +302,7 @@
 								{/if}
 						</div>	
 						</div>
-					</a>
+					</div>
 				</li>
 				
 			  {/each}
