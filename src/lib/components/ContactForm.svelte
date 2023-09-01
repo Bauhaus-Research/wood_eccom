@@ -1,58 +1,106 @@
 <script>
-	let name = '';
-	let email = '';
-	let phone = '';
+	import { blur } from 'svelte/transition';
+	/**
+	 * @type {HTMLInputElement}
+	 */
+	let first_name ;
+	/**
+	 * @type {HTMLInputElement}
+	 */
+	let last_name;
+	/**
+	 * @type {HTMLInputElement}
+	 */
+	let email ;
+	/**
+	 * @type {HTMLInputElement}
+	 */
+	let phone ;
+	/**
+	 * @type {HTMLSelectElement}
+	 */
+	let countries ;
+	/**
+	 * @type {any}
+	 */
+	let company ;
+  let formSuccess = false; // Variable to track form submission success
 
-	function handleSubmit() {
-		// You can add your logic here to handle the form submission
-		console.log('Form submitted!');
-	}
+  /**
+	 * @param {{ preventDefault: () => void; }} event
+	 */
+  async function submitForm(event) {
+    event.preventDefault();
+  // Validate form fields
+  console.log(first_name.value+" "+last_name.value+" "+email.value+" "+phone.value+" "+countries.value+" "+company.value);
+
+  console.log(first_name.value);
+    // After successful submission
+    formSuccess = true;
+  console.log(first_name.value);
+
+
+
+  }
 </script>
-
-<form class="h-96 w-80 flex flex-col justify-evenly bg-gray-900" on:submit={handleSubmit}>
-	<h1 class="font-bold text-xl col-span-2 text-center text-gray-300 mb-2">Contact Form</h1>
-	<div class="col-span-2">
-		<div class="col-span-2 mb-2">
-			<input
-				type="text"
-				id="name"
-				class=" border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
-				placeholder="Name"
-				required
-			/>
-		</div>
-		<div class="col-span-2 mb-2">
-			<input
-				type="email"
-				id="email"
-				class=" border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
-				placeholder="Email"
-				required
-			/>
-		</div>
-		<div class="col-span-2 mb-2">
-			<input
-				type="tel"
-				id="phone"
-				class=" border text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 bg-gray-700 border-gray-600 placeholder-gray-400 text-white"
-				placeholder="Mobile Phone"
-				required
-			/>
-		</div>
-		<div class="grid grid-cols-2 col-span-2 gap-4 justify-between" />
-		<div class="relative mb-3 border-2 border-gray-600 rounded-lg" data-te-input-wrapper-init>
-			<textarea
-				class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none text-neutral-400 placeholder:text-neutral-200 peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-20"
-				id="exampleFormControlTextarea1"
-				rows="4"
-				placeholder="Your message"
-			/>
+<section in:blur={{ delay:1200, duration:300 }} out:blur={{ duration:300 }} class="bg-[#ecebe9] shadow-2xl rounded-lg  text-amber-950  sm:w-[30rem] w-[23rem] ">
+	<div class="{formSuccess===false?'hidden':'block'}">
+		<div class="bg-white rounded-lg p-8 flex flex-col justify-center items-center  text-amber-950  sm:w-[30rem] w-[23rem] ">
+			<h1 class="text-xl text-amber-950 font-bold">Do not expect an email from me later - this form didn't go anywhere</h1>
 		</div>
 	</div>
+	<div class="{formSuccess===true?'hidden':'block'}">
+		<form on:submit={submitForm} class="bg-[#ecebe9] rounded-lg p-8 grid gap-x-2 mb-6 grid-cols-2  text-amber-950   sm:w-[30rem] w-[23rem] ">
+			<h1 class="col-span-2 font-bold font-serif text-xl text-amber-950">Unclaimed Medicare Benefits
+			</h1><p class="col-span-2 mb-2 text-sm text-amber-950 text-opacity-70">Are you missing out? Take the first step in reclaiming what's yours today.
+			</p>
+			<div class="col-span-2 sm:col-span-1">
+				<label for="first_name" class="mb-2 text-opacity-60 text-xs text-amber-950">First Name*</label>
+				<input type="text" id="first_name" bind:this={first_name} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5" placeholder="John" required>
+			</div>
+			<div class="col-span-2 sm:col-span-1">
+				<label for="last_name" class="mb-2 text-opacity-60 text-xs text-amber-950">Last name</label>
+				<input type="text" bind:this={last_name} id="last_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5" placeholder="Doe" required>
+			</div>
+			<div class="col-span-2 sm:col-span-1">
+				<label for="email" class="mb-2  text-opacity-60 text-xs text-amber-950">Email Address</label>
+				<input type="email" bind:this={email} id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5" placeholder="john@doe.com" required>
+			</div>
+			<div class="col-span-2 sm:col-span-1">
+				<label for="phone" class=" mb-2 text-opacity-60 text-xs text-amber-950">Phone</label>
+				<input type="tel" bind:this={phone} id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5" placeholder="(813) 123-4567" required>
+			</div>  
+		
+				<div class="col-span-2">
+					<label for="countries" class="block mb-1 mt-2  text-opacity-60 text-xs text-amber-950">Select your district</label>
+			<select id="countries" bind:this={countries} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5">
+			  <option selected>I currently have medicare</option>
+			  <option value="US">I don't currently have medicare</option>
+			  <option value="US2">I don't qualify for medicare</option>
+			</select>
+				</div>
+				<div class="col-span-2 sm:col-span-1">
+				<label for="company" class="mb-2  text-opacity-60 text-xs text-amber-950">Zip Code</label>
+				<input type="text" id="company" bind:this={company} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500  w-full p-2.5" placeholder="33620" required>
+			</div>
+			<div class="col-span-2 sm:col-span-1">
+				<label for="promo" class=" mb-2 text-opacity-60 text-xs text-amber-950">Promo Code</label>
+				<input readonly disabled type="email" id="promo" class="bg-gray-50 border border-gray-300 dark:focus:border-0 dark:focus:border-white cursor-default text-gray-900 text-sm rounded-lg  w-full p-2.5" placeholder="MEDICAID23" required>
+			</div>  
+			<div class="flex items-start mb-6 col-span-2 mt-2">
+				<h4 class="h-5 text-xs">
+				  By continuing, you agree to our <span>
+					<a class="underline" href="/terms">Terms of Use
+					</a>
+				  </span> and acknowledge our
+				  <span><a class="underline" href="/privacy">Privacy Policy
+				  </a>
+				</span>
+				  .
+				</h4>
+			  </div>
+			<button type="submit" class="text-white col-span-2 bg-amber-950 hover:bg-blue-700 transition-colors shadow-neutral-500 shadow-2xl duration-300 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 ">Submit</button>
+		</form>
+	</div>
+</section>
 
-	<button
-		on:click={() => {}}
-		class="rounded-lg mb-4 h-12 col-span-2 hover:bg-gray-400 bg-gray-600 mx-8 border-gray-500 hover:border-gray-200 border-2 transition-all duration-300 hover:shadow-lg hover:text-gray-100 text-gray-900 font-bold text-lg hover:shadow-gray-300"
-		type="submit">Submit</button
-	>
-</form>

@@ -11,17 +11,17 @@
                 <div class="block w-8 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
                     <span
                         aria-hidden="true"
-                        class="block absolute h-1 w-8 {scrollY > 10 || open==true? 'bg-green-700': 'bg-white group-hover:bg-green-700'} transform transition duration-500 ease-in-out"
+                        class="block absolute h-1 w-8 {scrollY > 10 || open==true? 'bg-blue-700': 'bg-white group-hover:bg-blue-700'} transform transition duration-500 ease-in-out"
                         class:rotate-45={open} class:-translate-y-1.5={!open}
                     ></span>
                     <span
                         aria-hidden="true"
-                        class="block absolute h-1 w-8  {scrollY > 10 || open==true? 'bg-green-700': 'bg-white group-hover:bg-green-700'}  transform transition duration-500 ease-in-out"
+                        class="block absolute h-1 w-8  {scrollY > 10 || open==true? 'bg-blue-700': 'bg-white group-hover:bg-blue-700'}  transform transition duration-500 ease-in-out"
                         class:opacity-0={open}
                     ></span>
                     <span
                         aria-hidden="true"
-                        class="block absolute h-1 w-8  {scrollY > 10 || open==true? 'bg-green-700': 'bg-white group-hover:bg-green-700'}  transform transition duration-500 ease-in-out"
+                        class="block absolute h-1 w-8  {scrollY > 10 || open==true? 'bg-blue-700': 'bg-white group-hover:bg-blue-700'}  transform transition duration-500 ease-in-out"
                         class:-rotate-45={open} class:translate-y-1.5={!open}
                     ></span>
                 </div>
