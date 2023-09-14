@@ -1,92 +1,20 @@
 <script>
 	import AddCart from '$lib/components/AddCart.svelte';
-	import ContactForm from '$lib/components/ContactForm.svelte';
-	import ContactModal from '$lib/components/ContactModal.svelte';
 	import Footer from '$lib/components/Footer.svelte';
-	import Heart from '$lib/components/Heart.svelte';
 	import HomePageItems from '$lib/components/HomePageItems.svelte';
+	import MainHead from '$lib/components/MainHead.svelte';
 	import Modal from '$lib/components/Modal.svelte';
 	import Nav from '$lib/components/Nav.svelte';
-	import ParticleImage from '$lib/components/ParticleImage.svelte';
-	import ProductCard from '$lib/components/ProductCard.svelte';
 	import RemoveCart from '$lib/components/RemoveCart.svelte';
 	import WoodYouPrompt from '$lib/components/WoodYouPrompt.svelte';
-	import { fade, blur } from 'svelte/transition';
+	import { Toaster } from 'svelte-french-toast';
 	let showModal = false;
 
-	let categories = [
+	let section = [
 		{
-			title: 'Dining',
-			image: 'dinings.webp',
-			href: 'all_products/dining'
-		},
-		{
-			title: 'Rugs',
-			image: 'carpet.webp',
-			href: 'all_products/rugs'
-		},
-		{
-			title: 'Decoration',
-			image: 'decoration.webp',
-			href: 'all_products/home'
-		},
-		{
-			title: 'Office',
-			image: 'office.webp',
-			href: 'all_products/office'
-		},
-		{
-			title: 'Bedroom',
-			image: 'bed.webp',
-			href: 'all_products/bedroom'
-		},
-		{
-			title: 'Living',
-			image: 'workspace_prod.webp',
-			href: 'all_products/living'
-		},
-		{
-			title: 'Storage',
-			image: 'bauhausresearch_storageCubese.webp',
-			href: 'all_products/storage'
-		},
-		{
-			title: 'Outdoor',
-			image: 'outtdoor.webp',
-			link: 'all_products/outdoor'
-		},
-		{
-			subtitle: 'Kids',
-			linktitle: 'Kids',
-			image: 'qc kids.webp',
-			link: 'all_products/kids'
-		}
-	];
-
-	let introItem = [
-		{
-			title: 'Eat',
-			subtitle: 'Gather around the table for a meal with friends and family',
-			link: '/all_products/dining',
-			linktitle: 'Dining',
-			price: 1,
-			image: 'dinings.webp'
-		},
-		{
-			title: 'Sleep',
-			subtitle: 'Relax and unwind in your own private sanctuary',
-			link: '/all_products/bedroom',
-			linktitle: 'Bedrooms',
-			price: 1,
-			image: 'bed.webp'
-		},
-		{
-			title: 'Gallery',
-			subtitle: 'Check our the wood engravings',
-			link: '/all_products/living',
-			linktitle: 'Gallery',
-			price: 1,
-			image: 'engraved-islands-of-the-bahamas-.webp'
+			title: 'Time to get productive',
+			p: 'Lorem Ipsum',
+			img: '/bed.webp'
 		}
 	];
 
@@ -124,102 +52,31 @@
 	<!-- <script src="path/to/your/external/script.js" defer></script> -->
 </svelte:head>
 
-<svelte:window bind:scrollY />
+<Nav />
 
-<Nav {scrollY} />
-<div class="w-full lg:h-screen h-[35rem] bg-black -z-20 absolute top-0 left-0 overflow-hidden">
-	<video
-		muted
-		playsinline
-		autoplay
-		loop
-		class="w-full h-full object-cover opacity-30 overflow-hidden"
-		style="float: left;"
+<MainHead />
+
+{#each section as item}
+	<section
+		class="mx-10 mt-5 bg-amber-100 h-96 flex-col md:h-[40vw] flex md:flex-row justify-between items-end"
 	>
-		<source src="woodyoupromo.webm" type="video/webm" />
-		<source src="woodyoupromo.mp4" type="video/mp4" />
-	</video>
-</div>
-
-<section class="h-[70rem] lg:h-screen flex flex-col justify-end items-center overflow-hidden">
-	<div class="flex flex-col justify-between items-center opacity-100 mx-auto">
-		<h1
-			transition:blur={{ delay: 300, duration: 300 }}
-			class=" text-5xl mb-4 text-white font-semibold mx-auto text-center font-serif"
-		>
-			Furniture that fits your style
-		</h1>
-		<button
-			transition:blur={{ delay: 550, duration: 300 }}
-			on:click={() => {
-				showModal = true;
-			}}
-			class=" mb-12 h-14 lg:w-[32rem] bg-opacity-50 max-w-sm sm:max-w-xl w-full rounded-full bg-white border-2 border-black flex flex-col justify-center"
-		>
-			<h2 class="ml-5">Find what makes you complete</h2>
-		</button>
-		<div class=" lg:flex mx-10 mb-8">
-			{#each introItem as item, i}
-				<div
-					class="max-w-sm mb-4 sm:max-w-xl bg-cover bg-center bg-opacity-100 w-full mx-2 h-48 bg-blend-overlay lg:h-60 bg-[rgb(33,20,13)] group hover:bg-opacity-50 duration-200 transition-all text-white font-semibold flex flex-col justify-evenly items-center rounded-lg shadow-xl px-8"
-					transition:fade={{ delay: 1000 + 100 * i }}
-					style="background-image: url('{item.image}');"
-				>
-					<div><p class="text-center text-sm font-medium">{item.subtitle}</p></div>
-					<div>
-						<a
-							class="border-[1px] text-white hover:text-opacity-100 text-opacity-80 group-hover:bg-gradient-to-t from-amber-950 to-amber-900 border-amber-900 group-hover:border-0 sm:px-8 px-6 sm:py-4 py-3 rounded-full hover:shadow-amber-950 shadow-lg transition-all duration-300"
-							href={item.link}
-						>
-							{item.linktitle}
-						</a>
-					</div>
-				</div>
-			{/each}
+		<div class="h-[90%] self-end ml-10">
+			<h1 class="font-bold text-3xl md:text-5xl">
+				{item.title}
+			</h1>
+			<p class="font-light text-lg">
+				{item.p}
+			</p>
 		</div>
-	</div>
-</section>
+		<img src={item.img} class="h-[90%] aspect-auto" alt={item.img} />
+	</section>
+{/each}
 
-<HomePageItems title="Categories" 
-introItem = {[
-	{
-		title: 'DINING',
-		price: 1,
-		image: 'dinings.webp'
-	},
-	{
-		title: 'OFFICE',
-		price: 1,
-		image: 'dinings.webp'
-	},
-
-	{
-		title: 'PATIO',
-		price: 1,
-		image: 'dinings.webp'
-	},
-	{
-		title: 'TILES',
-		price: 1,
-		image: 'dinings.webp'
-	},
-	{
-		title: 'STORAGE',
-		price: 1,
-		image: 'dinings.webp'
-	},
-
-	{
-		title: 'CARPETS',
-		price: 1,
-		image: 'dinings.webp'
-	},
-	{
-		title: 'BEDDING',
-		price: 1,
-		image: 'dinings.webp'
-	},
-]}
+<HomePageItems
+	title="Sales"
+	subtitle="
+Beautiful appliances that save you time and effort. Enjoy professional results from home."
+	titlelink="/shop/sales"
 />
 
 <section class=" bg-[rgb(33,20,13)] group">
@@ -247,7 +104,7 @@ introItem = {[
 				>
 					Checkout
 				</button>
-				<AddCart  />
+				<AddCart />
 				<RemoveCart />
 			</button>
 
@@ -301,7 +158,7 @@ introItem = {[
 				End the year in a new office
 			</h2>
 			<a
-				href="/all_products/office"
+				href="/"
 				class="text-xl mt-2 px-4 py-1 group-hover:shadow-2xl group-hover:scale-110 border-opacity-30 hover:border-opacity-80 hover:bg-opacity-20 hover:text-opacity-100 text-opacity-70 hover:bg-[rgb(255,233,221)] hover:scale-105 transition-all duration-150 rounded-sm self-center font-bold border-2 border-[rgb(255,233,221)] text-[rgb(255,233,221)]"
 			>
 				Upgrade Your Workstation
@@ -310,89 +167,7 @@ introItem = {[
 	</section>
 </section>
 
-<HomePageItems title="Categories" 
-introItem = {[
-	{
-		title: 'DINING1',
-		price: 1,
-		image: 'dinings.webp'
-	},
-	{
-		title: 'OFFICE1',
-		price: 1,
-		image: 'dinings.webp'
-	},
-
-	{
-		title: 'PATIO1',
-		price: 1,
-		image: 'dinings.webp'
-	},
-	{
-		title: 'TILES1',
-		price: 1,
-		image: 'dinings.webp'
-	},
-	{
-		title: 'STORAGE1',
-		price: 1,
-		image: 'dinings.webp'
-	},
-
-	{
-		title: 'CARPETS1',
-		price: 1,
-		image: 'dinings.webp'
-	},
-	{
-		title: 'BEDDING1',
-		price: 1,
-		image: 'dinings.webp'
-	},
-]}
-/>
-<HomePageItems title="Categories" 
-introItem = {[
-	{
-		title: 'DINING2',
-		price: 1,
-		image: 'dinings.webp'
-	},
-	{
-		title: 'OFFICE2',
-		price: 1,
-		image: 'dinings.webp'
-	},
-
-	{
-		title: 'PATIO2',
-		price: 1,
-		image: 'dinings.webp'
-	},
-	{
-		title: 'TILES2',
-		price: 1,
-		image: 'dinings.webp'
-	},
-	{
-		title: 'STORAGE2',
-		price: 1,
-		image: 'dinings.webp'
-	},
-
-	{
-		title: 'CARPETS2',
-		price: 1,
-		image: 'dinings.webp'
-	},
-	{
-		title: 'BEDDING2',
-		price: 1,
-		image: 'dinings.webp'
-	},
-]}
-/>
-<ContactModal />
+<!-- <ContactModal /> -->
 
 <Modal bind:showModal>
 	<WoodYouPrompt />
@@ -402,3 +177,5 @@ introItem = {[
 
 <style>
 </style>
+
+<Toaster />

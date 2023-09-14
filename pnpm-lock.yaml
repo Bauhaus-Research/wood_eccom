@@ -5,9 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@lottiefiles/svelte-lottie-player':
+    specifier: ^0.3.0
+    version: 0.3.0
   '@stripe/stripe-js':
-    specifier: ^2.1.0
-    version: 2.1.0
+    specifier: ^2.1.2
+    version: 2.1.2
   '@vercel/analytics':
     specifier: ^1.0.2
     version: 1.0.2
@@ -17,6 +20,12 @@ dependencies:
   openai:
     specifier: ^4.2.0
     version: 4.2.0
+  svelte-french-toast:
+    specifier: ^1.2.0
+    version: 1.2.0(svelte@3.59.1)
+  toastr:
+    specifier: ^2.1.4
+    version: 2.1.4
 
 devDependencies:
   '@fontsource/fira-mono':
@@ -71,8 +80,8 @@ devDependencies:
     specifier: ^2.8.1
     version: 2.10.0(prettier@2.8.8)(svelte@3.59.1)
   stripe:
-    specifier: ^13.2.0
-    version: 13.2.0
+    specifier: ^13.5.0
+    version: 13.5.0
   svelte:
     specifier: ^3.54.0
     version: 3.59.1
@@ -572,6 +581,12 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
+  /@lottiefiles/svelte-lottie-player@0.3.0:
+    resolution: {integrity: sha512-u7kwq6YlNYCN7pRO3er+1/uDDwBX12c8hnKFxmRejAW78d3Ps6Hdq9XDUYHNAr+0euEf9p2RvpDmZaKQzcJXVw==}
+    dependencies:
+      lottie-web: 5.12.2
+    dev: false
+
   /@mapbox/node-pre-gyp@1.0.10:
     resolution: {integrity: sha512-4ySo4CjzStuprMwk35H5pPbkymjv1SF3jGLj6rAHp/xT/RF7TL7bd9CTm1xDY49K2qF7jmR/g7k+SkLETP6opA==}
     hasBin: true
@@ -1061,8 +1076,8 @@ packages:
     resolution: {integrity: sha512-R1PwtDvUfs99cAjfuQ/WpwJ3c92+DAMy9xGApjqlWQMj0FKQabUAys2swfTRNzuYAYJh7NqK2dzcYVNkKLEKUg==}
     dev: true
 
-  /@stripe/stripe-js@2.1.0:
-    resolution: {integrity: sha512-AdMHWqIq/s3TLmoyuzdb6l21STKDKNm82cjce1VelyQGinVNjVgSEPH5UDtxENEP7OzgMZH8RTphFMi0fMJGLQ==}
+  /@stripe/stripe-js@2.1.2:
+    resolution: {integrity: sha512-xyB/oVoFBPLCVGRUGQphzMnfCVfWGqKLb2+v/sIJAwYlVMrS2uF4iyZHpE7Lg1DtDL5qsPxSTpUGs0kRtMdbRA==}
     dev: false
 
   /@supabase/functions-js@2.1.2:
@@ -2384,6 +2399,10 @@ packages:
     hasBin: true
     dev: true
 
+  /jquery@3.7.1:
+    resolution: {integrity: sha512-m4avr8yL8kmFN8psrbFFFmB/If14iN5o9nw/NgnnM+kybDJpRsAynV2BsfpTYrTRysYUdADVD7CkUUizgkpLfg==}
+    dev: false
+
   /js-cookie@3.0.5:
     resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
     engines: {node: '>=14'}
@@ -2460,6 +2479,10 @@ packages:
     dependencies:
       js-tokens: 4.0.0
     dev: true
+
+  /lottie-web@5.12.2:
+    resolution: {integrity: sha512-uvhvYPC8kGPjXT3MyKMrL3JitEAmDMp30lVkuq/590Mw9ok6pWcFCwXJveo0t5uqYw1UREQHofD+jVpdjBv8wg==}
+    dev: false
 
   /loupe@2.3.6:
     resolution: {integrity: sha512-RaPMZKiMy8/JruncMU5Bt6na1eftNoo++R4Y+N2FrxkDVTrGvcyzFTsaGif4QTeKESheMGegbhw6iUAq+5A8zA==}
@@ -3691,8 +3714,8 @@ packages:
       acorn: 8.8.2
     dev: true
 
-  /stripe@13.2.0:
-    resolution: {integrity: sha512-4a2UHpe/tyxP3sxSGhuKMgbW8hQnqSQIPMigXC8kW3P0+BpsITpKDP+xxriTMDkRAP0xTQwzxcqhfqB+/404Mg==}
+  /stripe@13.5.0:
+    resolution: {integrity: sha512-odGQbvkDVxR7ldxXth7kWaUv6M31bsPMYKCBR8oIIRDoiR4MfxWaLdz5h7QQDsGtelZugqx7AEVoC6twST+0VQ==}
     engines: {node: '>=12.*'}
     dependencies:
       '@types/node': 20.2.3
@@ -3773,6 +3796,15 @@ packages:
       svelte: 3.59.1
     dev: true
 
+  /svelte-french-toast@1.2.0(svelte@3.59.1):
+    resolution: {integrity: sha512-5PW+6RFX3xQPbR44CngYAP1Sd9oCq9P2FOox4FZffzJuZI2mHOB7q5gJBVnOiLF5y3moVGZ7u2bYt7+yPAgcEQ==}
+    peerDependencies:
+      svelte: ^3.57.0 || ^4.0.0
+    dependencies:
+      svelte: 3.59.1
+      svelte-writable-derived: 3.1.0(svelte@3.59.1)
+    dev: false
+
   /svelte-hmr@0.15.1(svelte@3.59.1):
     resolution: {integrity: sha512-BiKB4RZ8YSwRKCNVdNxK/GfY+r4Kjgp9jCLEy0DuqAKfmQtpL38cQK3afdpjw4sqSs4PLi3jIPJIFp259NkZtA==}
     engines: {node: ^12.20 || ^14.13.1 || >= 16}
@@ -3840,10 +3872,17 @@ packages:
       '@stripe/stripe-js': 1.54.2
     dev: true
 
+  /svelte-writable-derived@3.1.0(svelte@3.59.1):
+    resolution: {integrity: sha512-cTvaVFNIJ036vSDIyPxJYivKC7ZLtcFOPm1Iq6qWBDo1fOHzfk6ZSbwaKrxhjgy52Rbl5IHzRcWgos6Zqn9/rg==}
+    peerDependencies:
+      svelte: ^3.2.1 || ^4.0.0-next.1
+    dependencies:
+      svelte: 3.59.1
+    dev: false
+
   /svelte@3.59.1:
     resolution: {integrity: sha512-pKj8fEBmqf6mq3/NfrB9SLtcJcUvjYSWyePlfCqN9gujLB25RitWK8PvFzlwim6hD/We35KbPlRteuA6rnPGcQ==}
     engines: {node: '>= 8'}
-    dev: true
 
   /tailwindcss@3.3.3:
     resolution: {integrity: sha512-A0KgSkef7eE4Mf+nKJ83i75TMyq8HqY3qmFIJSWy8bNt0v1lG7jUcpGpoTFxAwYcWOphcTBLPPJg+bDfhDf52w==}
@@ -3932,6 +3971,12 @@ packages:
     dependencies:
       is-number: 7.0.0
     dev: true
+
+  /toastr@2.1.4:
+    resolution: {integrity: sha512-LIy77F5n+sz4tefMmFOntcJ6HL0Fv3k1TDnNmFZ0bU/GcvIIfy6eG2v7zQmMiYgaalAiUv75ttFrPn5s0gyqlA==}
+    dependencies:
+      jquery: 3.7.1
+    dev: false
 
   /totalist@3.0.1:
     resolution: {integrity: sha512-sf4i37nQ2LBx4m3wB74y+ubopq6W/dIzXg0FDGjsYnZHVa1Da8FH853wlL2gtUhg+xJXjfk3kUZS3BRoQeoQBQ==}

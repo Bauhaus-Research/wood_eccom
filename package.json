@@ -30,7 +30,7 @@
 		"postcss": "^8.4.27",
 		"prettier": "^2.8.0",
 		"prettier-plugin-svelte": "^2.8.1",
-		"stripe": "^13.2.0",
+		"stripe": "^13.5.0",
 		"svelte": "^3.54.0",
 		"svelte-check": "^3.0.1",
 		"svelte-range-slider-pips": "^2.2.2",
@@ -43,9 +43,12 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"@stripe/stripe-js": "^2.1.0",
+		"@lottiefiles/svelte-lottie-player": "^0.3.0",
+		"@stripe/stripe-js": "^2.1.2",
 		"@vercel/analytics": "^1.0.2",
 		"js-cookie": "^3.0.5",
-		"openai": "^4.2.0"
+		"openai": "^4.2.0",
+		"svelte-french-toast": "^1.2.0",
+		"toastr": "^2.1.4"
 	}
 }

@@ -1,25 +1,44 @@
 <script>
-	import { favs } from "$lib/stores/Favs";
+	import { addToFavorites, removeFromFavorites } from '$lib/stores/Favs';
+	import { onMount } from 'svelte';
 
-	export let id = 'id';
+	/**
+	 * @type {string}
+	 */
+	 export let id;
 	export let checked = false;
+	// if its in favourites then checked is true
+	// if its not in favourites then checked is false
 
-	const addTofavs = (/** @type {any } */ product) => {
-		if($favs.includes(product)) {
-			$favs.map((item) => {
-				$favs = $favs
-			})
-			return
+	function checkIfInFavs() {
+		const favs = JSON.parse(localStorage.getItem('fav')|| '');
+		if (favs) {
+			const fav = favs.find((/** @type {{ sku: string; }} */ fav) => fav.sku === id);
+			if (fav) {
+				checked = true;
+			}
 		}
-		product.quantity += 1
-		$favs = [...$favs, product]
 	}
-	
+  // Use onMount to run checkIfInFavs when the component initializes
+  onMount(checkIfInFavs);
 </script>
 
-<input type="checkbox" class="checkbox" {id} bind:checked on:click={()=>{checked===false? addTofavs({ id: 3, name: 'Grapes', image: '🍇', price: 15, quantity: 0 }): null}}/>
+<input
+	type="checkbox"
+	class="checkbox"
+	{id}
+	bind:checked
+	on:click={() => {
+		checked === false ? addToFavorites({ sku: id }) : removeFromFavorites({ sku: id });
+	}}
+/>
 <label for={id}>
-	<svg id="heart-svg" viewBox="467 392 58 57" xmlns="http://www.w3.org/2000/svg">
+	<svg
+		id="heart-svg"
+		class="h-16 -translate-y-6 -translate-x-6 aspect-square"
+		viewBox="467 392 58 57"
+		xmlns="http://www.w3.org/2000/svg"
+	>
 		<g id="Group" fill="none" fill-rule="evenodd" transform="translate(467 392)">
 			<path
 				id="heart"

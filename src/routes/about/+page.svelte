@@ -3,7 +3,6 @@
 	import Nav from '$lib/components/Nav.svelte';
 	import { blur, fly } from 'svelte/transition';
 	import { quadIn } from 'svelte/easing';
-	import ContactModal from '$lib/components/ContactModal.svelte';
 	let whichMap = 'map1';
 	function makeMap1() {
 		whichMap = 'map1';
@@ -106,8 +105,8 @@
 	let scrollY = 0;
 </script>
 
-<svelte:window bind:scrollY />
-<Nav {scrollY} />
+
+<Nav />
 <svelte:head>
 	<title>Home</title>
 	<meta name="description" content="Svelte demo app" />
@@ -246,7 +245,6 @@
 		</p>
 	</div>
 </section>
-<ContactModal />
 
 <section id="locations" class="grid lg:grid-cols-2 grid-cols-1 lg:h-screen pt-16">
 	<div class="bg-gray-400 h-96 lg:h-full">

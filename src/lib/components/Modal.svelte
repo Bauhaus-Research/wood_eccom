@@ -2,7 +2,7 @@
 	/**
 	 * @type {boolean}
 	 */
-	 export let showModal; // boolean
+	export let showModal; // boolean
 
 	/**
 	 * @type {HTMLDialogElement}
@@ -13,7 +13,8 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
-<dialog class="bg-gray-900"
+<dialog
+	class="bg-stone-300 max-w-2xl w-full"
 	bind:this={dialog}
 	on:close={() => (showModal = false)}
 	on:click|self={() => dialog.close()}
@@ -63,5 +64,4 @@
 			opacity: 1;
 		}
 	}
-
 </style>

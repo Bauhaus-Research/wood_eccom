@@ -13,7 +13,7 @@
     }
   </script>
   
-  <div class="my-2 border mx-auto border-[2px] w-10/12 justify-center flex items-center rounded-md shadow-md">
+  <div class="my-2  mx-auto border-[2px] w-10/12 justify-center flex items-center rounded-md shadow-md">
     <div>
       <button
         type="submit"
