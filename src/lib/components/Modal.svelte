@@ -13,12 +13,8 @@
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events a11y-no-noninteractive-element-interactions -->
-<<<<<<< HEAD
 <dialog
 	class="bg-stone-300 max-w-2xl w-full"
-=======
-<dialog class="rounded-lg shadow-lg"
->>>>>>> 7536e9c2a44f7ab460eb677b8e13d775c599a4b5
 	bind:this={dialog}
 	on:close={() => (showModal = false)}
 	on:click|self={() => dialog.close()}

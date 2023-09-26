@@ -2,7 +2,7 @@
 
 import { onMount } from 'svelte';
 import { readable, writable } from 'svelte/store';
-import supabase from '$lib/db.js';
+import supabase from '$lib/supabase.js';
 
 // Define an async function to fetch data from Supabase
 async function fetchSupabaseData() {

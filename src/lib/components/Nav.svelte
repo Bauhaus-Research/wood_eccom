@@ -1,18 +1,14 @@
 <script>
 	import HamburgerMenu from './HamburgerMenu.svelte';
 	import { blur } from 'svelte/transition';
-<<<<<<< HEAD
 	import { totalItems } from '$lib/stores/cartStore';
-	import OpensClose from './OpensClose.svelte';
-=======
->>>>>>> 7536e9c2a44f7ab460eb677b8e13d775c599a4b5
+	// import OpensClose from './OpensClose.svelte';
 	let navItem = [
 		{
 			title: 'Mission',
 			link: '/about'
 		},
 		{
-<<<<<<< HEAD
 			title: 'Gallery',
 			link: '/woodcuts_gallery'
 		},
@@ -25,32 +21,6 @@
 			link: '/shop'
 		}
 	];
-=======
-			title: 'Eligibility',
-			link: '/all_products'
-		},
-		{
-			title: 'Compare Plans',
-			link: '/woodcuts_gallery'
-		},
-		{
-			title: 'About',
-			link: '/affiliated_brands'
-		},
-		{
-			title: 'News',
-			link: '/about'
-		}
-	];
-	/**
-	 * @type {number}
-	 */
-	export let scrollY;
-		/**
-	 * @type {number}
-	 */
-	 export let innerHeight;
->>>>>>> 7536e9c2a44f7ab460eb677b8e13d775c599a4b5
 	let showTapMenu = false;
 	function toggleTapMenu() {
 		showTapMenu = !showTapMenu;
@@ -59,7 +29,6 @@
 
 <nav
 	in:blur={{}}
-<<<<<<< HEAD
 	class=" group transition-colors bg-neutral-100 shadow-lg duration-300 fixed top-0 z-50 left-0 w-screen h-16 items-center flex flex-row justify-between"
 >
 	<div class="flex flex-row justify-center items-center text-center ml-2 md:ml-14">
@@ -69,27 +38,11 @@
 			>Wood You Furniture</a
 		>
 		<div class="lg:block hidden w-0 lg:w-fit ml-10">
-=======
-	class=" {(scrollY > innerHeight*4-80&&scrollY < innerHeight*5-80 )|| scrollY > innerHeight*6-80
-		? 'bg-neutral-900 shadow-lg text-blue-100'
-		: scrollY > 10 || showTapMenu == true
-		? 'bg-white shadow-lg text-blue-900'
-		: 'hover:bg-white hover:shadow-lg hover:text-blue-900 text-white transition-all bg-transparent'} {scrollY >innerHeight-80 ? 'h-16' : 'h-28'} group transition-all duration-300 fixed top-0 z-50 left-0 w-screen items-center flex flex-row justify-between"
->
-	<div class="flex flex-row justify-center items-center text-center ml-5 md:ml-14">
-		<a href="/" class="text-sm w-fit md:text-xl font-black"><img src="insure.svg" alt="logo" class=" {scrollY >innerHeight-80 ? 'h-14' : 'h-20'} transition-all duration-300"></a>
-	</div>
-	<ul class="flex flex-row justify-end items-center text-center mr-5 md:mr-14">
-		<HamburgerMenu bind:open={showTapMenu} bind:scrollY />
-
-		<div class="lg:block hidden w-0 lg:w-fit">
->>>>>>> 7536e9c2a44f7ab460eb677b8e13d775c599a4b5
 			{#each navItem as items}
 				<li class="fade-underline md:mx-3 mx-0 cursor-not-allowed">
 					<h1>{items.title}</h1></li>
 			{/each}
 		</div>
-<<<<<<< HEAD
 	</div>
 	<ul
 		class="flex flex-row justify-end items-center text-end mr-2 md:mr-14 max-w-[20%] sm:max-w-xs w-full"
@@ -154,11 +107,8 @@
 		</a>
 
 		<div class="hidden lg:block">
-			<OpensClose />
+			<!-- <OpensClose /> -->
 		</div>
-=======
-		
->>>>>>> 7536e9c2a44f7ab460eb677b8e13d775c599a4b5
 	</ul>
 </nav>
 
@@ -170,21 +120,12 @@
 	>
 		<!-- Your tap menu content goes here -->
 		<div>
-<<<<<<< HEAD
-			<OpensClose />
+			<!-- <OpensClose /> -->
 			<ul class="text-center mt-10 mb-30">
 				{#each navItem as item}
 					<li class="my-3">
 						<a href={item.link}>{item.title}</a>
 					</li>
-=======
-			
-			<ul class="text-center mt-10 mb-30">
-				{#each navItem as item}
-				<li class="my-3">
-					<h1>{item.title}</h1>
-				</li>
->>>>>>> 7536e9c2a44f7ab460eb677b8e13d775c599a4b5
 				{/each}
 			</ul>
 		</div>
